@@ -4,6 +4,7 @@
 
 /* Makes all the text not selectable */
 body {
+    /*
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -11,4 +12,5 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor:default;
+    */
 }

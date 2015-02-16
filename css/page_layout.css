@@ -41,6 +41,19 @@ tbody td, thead th {
     float: left !important;
 }
 
+tbody td {
+    height: 40px;
+}
+
+tbody td.add {
+    height: 52px;
+}
+
+.right {
+    float: right;
+}
+
+
 /*
 td:nth-child(1), thead th:nth-child(1) {
     width: 25%;

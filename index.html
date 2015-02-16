@@ -24,6 +24,10 @@
 			<h1 class="text-center">Beacon Cloud</h1>
 		</div>
 
+		<div class="vertical-center" id="beacon_table">
+		</div>
+
+		<!--
 		<div class="vertical-center">
 			<div class="table-responsive col-md-6 col-md-offset-3 col-sm-12">
 				<table class="table table-bordered table-striped table-hover">
@@ -124,13 +128,28 @@
 				</table>
 			</div>
 		</div>
+
+		-->
 				
 		<!-- Scripts -->
 		<script src="bower_components/bower-mqttws/mqttws31.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bower_components/simple-js-mqtt-client/simple-js-mqtt-client.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bower_components/nutella_lib/nutella_lib.js" type="text/javascript" charset="utf-8"></script>
 
-		<!-- <script src="build/component.js"></script> -->
+		<script type="text/jsx" src="js/react/beacon.js"></script>
+		<script type="text/jsx" src="js/react/beacon-add.js"></script>
+		<script type="text/jsx" src="js/react/beacon-table.js"></script>
+
+		<script type="text/jsx">
+
+			var query_params = nutella.init(location.search, function() {
+				React.render(
+						<BeaconTable/>,
+						document.getElementById('beacon_table')
+				);
+			});
+
+		</script>
 				
     </body>
 </html>
