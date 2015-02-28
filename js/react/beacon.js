@@ -72,12 +72,18 @@ var Beacon = React.createClass({
         else
             b.minor = this.props.beacon.minor;
 
+        if(this.state.ridEdit || this.state.uuidEdit || this.state.majorEdit || this.state.minorEdit)
+                add = "add";
+            else
+                add = "";
+
         return (
+
             <tr>
-                <td className="col-md-2 col-sm-2 col-xs-2" onClick={this.handleRidClicked}>{b.rid}</td>
-                <td className="col-md-6 col-sm-6 col-xs-6" onClick={this.handleUuidClicked}>{b.uuid}</td>
-                <td className="col-md-2 col-sm-2 col-xs-2" onClick={this.handleMajorClicked}>{b.major}</td>
-                <td className="col-md-2 col-sm-2 col-xs-2" onClick={this.handleMinorClicked}>
+                <td className={"col-md-2 col-sm-2 col-xs-2 "+add} onClick={this.handleRidClicked}>{b.rid}</td>
+                <td className={"col-md-6 col-sm-6 col-xs-6 "+add} onClick={this.handleUuidClicked}>{b.uuid}</td>
+                <td className={"col-md-2 col-sm-2 col-xs-2 "+add} onClick={this.handleMajorClicked}>{b.major}</td>
+                <td className={"col-md-2 col-sm-2 col-xs-2 "+add} onClick={this.handleMinorClicked}>
                     <span>
                         {b.minor}
                     </span>

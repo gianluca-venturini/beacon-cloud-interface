@@ -8,12 +8,12 @@ var BeaconTable = React.createClass({
         self = this;
 
         // Download all beacons
-        nutella.request("beacon/beacons", {}, function(reply) {
+        nutella.net.request("beacon/beacons", {}, function(reply) {
             self.setState({beaconData: reply.beacons});
         });
 
         // Wait for new added beacons
-        nutella.subscribe("beacon/beacons/added", function(message) {
+        nutella.net.subscribe("beacon/beacons/added", function(message) {
             var data = self.state.beaconData;
             data = data.concat(message.beacons);
 
@@ -21,7 +21,7 @@ var BeaconTable = React.createClass({
         });
 
         // Wait for removed beacons
-        nutella.subscribe("beacon/beacons/removed", function(message) {
+        nutella.net.subscribe("beacon/beacons/removed", function(message) {
             var data = self.state.beaconData;
             data = data.filter(function(d) {
                 return $.inArray(d.rid, message.beacons.map(function(r) {
@@ -33,10 +33,10 @@ var BeaconTable = React.createClass({
         });
     },
     hendleBeaconAdd: function(beacon) {
-        nutella.publish("beacon/beacon/add", beacon);
+        nutella.net.publish("beacon/beacon/add", beacon);
     },
     hendleBeaconRemove: function(beacon) {
-        nutella.publish("beacon/beacon/remove", {rid: beacon.rid});
+        nutella.net.publish("beacon/beacon/remove", {rid: beacon.rid});
     },
     render: function() {
         var self = this;
