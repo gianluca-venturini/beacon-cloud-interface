@@ -17,6 +17,8 @@
     	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+		<script src="js/lib/nutella_lib.js" type="text/javascript" charset="utf-8"></script>
+
     </head>
     <body>
 
@@ -130,10 +132,6 @@
 		</div>
 
 		-->
-				
-		<!-- Scripts -->
-		<script src="bower_components/bower-mqttws/mqttws31.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bower_components/nutella_lib/nutella_lib.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/jsx" src="js/react/beacon.js"></script>
 		<script type="text/jsx" src="js/react/beacon-add.js"></script>
@@ -144,7 +142,9 @@
 			// Parse the query parameters
 			var query_parameters = NUTELLA.parseURLParameters();
 
-			var nutella = NUTELLA.init(query_parameters.run_id, query_parameters.broker, 'beacon-cloud-interface');
+			var nutella = NUTELLA.init(query_parameters.broker, query_parameters.app_id, query_parameters.run_id, 'beacon-cloud-interface');
+
+			//var nutella = NUTELLA.init(query_parameters.run_id, query_parameters.broker, 'beacon-cloud-interface');
 			
 			React.render(
 					<BeaconTable/>,
